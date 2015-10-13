@@ -6,8 +6,7 @@
 /**
  * Main AngularJS Web Application
  */
-"use strict";
-var app = angular.module('tailorApp', [
+var app = angular.module('tutorialWebApp', [
   'ngRoute'
 ]);
 
@@ -30,57 +29,6 @@ app.config(['$routeProvider', function ($routeProvider) {
     // else 404
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
 }]);
-
-app.controller('productCtrl', ['$scope',function($scope){
-  $scope.products = [
-    {
-      productId:1,
-      name: 'prod1',
-      imgSrc: 'images/products/prod1.jpg',
-      imgUrl: 'something',
-    },
-    {
-      productId:2,
-      name: 'prod2',
-      imgSrc: 'images/products/prod2.jpg',
-      imgUrl: 'something',
-    },
-    {
-      productId:3,
-      name: 'prod3',
-      imgSrc: 'images/products/prod3.jpg',
-      imgUrl: 'something',
-    },
-    {
-      productId:4,
-      name: 'prod4',
-      imgSrc: 'images/products/prod4.jpg',
-      imgUrl: 'something',
-    },
-    {
-      productId:5,
-      name: 'prod5',
-      imgSrc: 'images/products/prod5.jpg',
-      imgUrl: 'something',
-    },
-  ],
-  $scope.banana ="Banana!"
-
-}]);
-
-app.directive('newProducts', function() {
-  return {
-    restrict: 'E',
-    scope:{
-      product: '=',
-    },
-    replace: true,
-    templateUrl: "templates/directives/products.html",
-    controller: function($scope) {
-      console.log($scope.product);
-    }
-  };
-});
 
 /**
  * Controls the Blog
